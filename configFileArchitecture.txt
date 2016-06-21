@@ -1,0 +1,27 @@
+On Apply
+  - Save Metcal.ini and Config.dat to file system
+  - Upload metcal.ini and config.dat to DB (using computer name and friendly name) (utilize new API function "UploadConfigFile" in MetCalStorage Classes)
+
+
+On Met/Cal Runtime Startup (Always)
+    -Retrieve the latest files (metcal.ini and config.dat) from the DB, based on the computer name. (utilize new API method "DownloadConfigFile" in MetCalStorage Class to retrieve files from DB (and thus will be place on the file system via API)
+   - If files not found for this computer name in the DB, check if there are local files that can be uploaded and upload them. (Utilize "UploadConfigFile" API method)
+   -If for some reason there are no local files to upload, prompt the user to use the default files and download them at that time. (Utilize "DownloadConfigFile method)
+  …Continue loading metcal…
+
+
+
+On "Imitate" - 
+     - get list of friendly names of saved configurations from DB and display dialog for user to select. (utilize new API call "GetWorkstationConfigFileList" from MetCalStorage Class) (Display Friendly Name, ComputerName, and last update Date/time in a grid row)
+     - when selected, utilize new API method "DownloadConfigFile" in MetCalStorage Class to retrieve files from DB (and thus will be place on the file system via API)
+     - update the current UI to reflect changes
+
+
+
+On "Save as Default"
+   (Same as On Apply , except computer name is blank to denote "default" (friendly name can also be blank)
+   Wont close dialog but changes will have been saved, thus Apply/Cancel should again be greyed.. ?
+
+
+
+(On Save from Editor - No changes.. (still just writes to file system) - Do we need to upload to DB as well?)
