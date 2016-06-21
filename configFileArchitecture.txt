@@ -7,7 +7,7 @@ On Met/Cal Runtime Startup (Always)
     -Retrieve the latest files (metcal.ini and config.dat) from the DB, based on the computer name. (utilize new API method "DownloadConfigFile" in MetCalStorage Class to retrieve files from DB (and thus will be place on the file system via API)
    - If files not found for this computer name in the DB, check if there are local files that can be uploaded and upload them. (Utilize "UploadConfigFile" API method)
    -If for some reason there are no local files to upload, prompt the user to use the default files and download them at that time. (Utilize "DownloadConfigFile method)
-  …Continue loading metcal…
+  â€¦Continue loading metcalâ€¦
 
 
 
@@ -25,3 +25,4 @@ On "Save as Default"
 
 
 (On Save from Editor - No changes.. (still just writes to file system) - Do we need to upload to DB as well?)
+hmm interesting..
